@@ -51,14 +51,69 @@ public class arrays{
     public static void ImCreDebi(double d[], double c[]){
         System.out.println("Creditos del cliente: ");
         for(int i = 0; i < c.length; i++){
-            if(c[i] != 0.0)
-                System.out.println( "  "+(1+i) + ": " + c[i]);
+            if(c[i] == 0.0){
+                break;
+            }
+            System.out.println( "  "+(1+i) + ": " + c[i]);
         }
         System.out.println("Debitos del cliente: ");
         for(int i = 0; i < d.length; i++){
-            if(d[i] != 0.0)
-                System.out.println("  "+(1+i) + ": " + d[i]);
+            if(d[i] == 0.0){
+                break;
+            }
+            System.out.println("  "+(1+i) + ": " + d[i]);
         }
+    }
+    public static void Bcreditos(double c[]){
+        int tope = 0;
+        System.out.println("Creditos del cliente: ");
+        for(int i = 0; i < c.length; i++){
+            if(c[i] == 0.0){
+                tope = i;
+                break;
+            }
+            System.out.println( "  "+(1+i) + ": " + c[i]);
+        }
+        System.out.print("Ingrese el numero de credito a borrar: ");
+        int bor = scan.nextInt();
+        scan.nextLine();
+        bor = bor - 1;
+        if(tope != 0){
+            if(bor > 0 && bor < tope){
+                for(int i = bor; i < tope-1; i++){
+                    c[i] = c[i+1];
+                }
+                c[tope-1] = 0.0;
+                System.out.println("Creditos del cliente luego de la eliminacion: ");
+                for(int i = 0; i < c.length; i++){
+                    if(c[i] == 0.0){
+                        break;
+                    }
+                    System.out.println( "  "+(1+i) + ": " + c[i]);
+                }
+            }
+            else{
+                System.out.println("El numero ingresado es incorrecto, no se eliminara ningun dato.");
+            }
+        }
+        else{
+            if(bor > 0 && bor < c.length){
+                for(int i = bor; i < c.length-1; i++){
+                    c[i] = c[i+1];
+                }
+                c[c.length-1] = 0.0;
+                System.out.println("Creditos del cliente luego de la eliminacion: ");
+                for(int i = 0; i < c.length; i++){
+                    if(c[i] == 0.0){
+                        break;
+                    }
+                    System.out.println( "  "+(1+i) + ": " + c[i]);
+                }
+            }
+            else{
+                System.out.println("El numero ingresado es incorrecto, no se eliminara ningun dato.");
+            }
+        }  
     }
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args){
@@ -97,11 +152,14 @@ public class arrays{
                 stop = 0;
             }
         }
+        System.out.println("RESUMEN DE DATOS: ");
         Tdebitos(debitos);
         Tcreditos(creditos);
         SaldoT(debitos, creditos);
         Pdebitos(debitos);
         Mdebitos(debitos);
         ImCreDebi(debitos, creditos);
+        System.out.println("--------------------------------------------");
+        Bcreditos(creditos);
     }
 }
