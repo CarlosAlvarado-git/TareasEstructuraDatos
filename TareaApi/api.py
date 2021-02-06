@@ -2,7 +2,7 @@ from flask import Flask
 import random
 app = Flask(__name__)
 
-@app.route('/linear/<int:N>/<int:Values>')
+@app.route('/linear/<int:N>/<int:Values>', methods=['GET'])
 def linea_search(N=None,Values=None):
     if(N > 100):
         lista = random.sample(range(1, (50+Values)), N)
@@ -15,7 +15,7 @@ def linea_search(N=None,Values=None):
             break
     return f'La lista es: {lista}\n Numero a buscar: {Values}\n En metodo lineal: {r}'
 
-@app.route('/binary/<int:N>/<int:Values>')
+@app.route('/binary/<int:N>/<int:Values>', methods=['GET'])
 def binary_search(N=None,Values=None):
     if(N > 100):
         lista = random.sample(range(1, (50+Values)), N)
