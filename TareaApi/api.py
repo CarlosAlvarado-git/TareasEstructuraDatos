@@ -22,7 +22,7 @@ def binary_search(N=None,Values=None):
     lista = []
     while(i < N):
         lista.append(random.randint(1,100))
-        i += 1
+        i = i + 1
     r = "no encontrado"
     ls = len(lista)-1
     li = 0
@@ -39,7 +39,7 @@ def binary_search(N=None,Values=None):
             if(Values == lista[li]):
                 r = "Encontrado"
             else:
-                ls = me + 1
+                ls = me - 1 
                 me = (li+ls)//2
         else:
             break
