@@ -43,10 +43,12 @@ public class eje1{
             ultimo--;
 
         }
-        for(int i = 25; i > 19; i--){
-            System.out.println("La cantidad de "+ (char)(letras[i][0]) + " es: " + letras[i][1]);
+        for(int i = 25; i > 15; i--){
+            System.out.print("La cantidad de "+ (char)(letras[i][0])+ " es:");
+            for(int x = 0; x < letras[i][1]; x++){
+                System.out.print("*");
+            }
+            System.out.print("\n");
         }
-
-        
     }
 }
