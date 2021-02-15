@@ -24,8 +24,26 @@ public class eje1{
                     letras[pos][1] = letras[pos][1] + 1;
             }
         }
-        
+        int posmayor = 0;
+        int cambio = 0;
+        int ultimo = 26;
         for(int i = 0; i < 26; i++){
+            posmayor = 0;
+            for(int x = 0; x < ultimo;x++){
+                if(letras[posmayor][1] <= letras[x][1]){
+                    posmayor = x;
+                }
+            }
+            cambio = letras[posmayor][1];
+            letras[posmayor][1] = letras[ultimo-1][1];
+            letras[ultimo-1][1] = cambio;
+            cambio = letras[posmayor][0];
+            letras[posmayor][0] = letras[ultimo-1][0];
+            letras[ultimo-1][0] = cambio;
+            ultimo--;
+
+        }
+        for(int i = 25; i > 19; i--){
             System.out.println("La cantidad de "+ (char)(letras[i][0]) + " es: " + letras[i][1]);
         }
 
