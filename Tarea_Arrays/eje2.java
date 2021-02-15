@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class eje2{
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args){
+        
         System.out.println("Veriricar si la palabra es palindromo");
         System.out.println("Ingrese parrafo :");
         String texto = scan.nextLine();
