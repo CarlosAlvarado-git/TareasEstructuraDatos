@@ -17,6 +17,7 @@ public class eje1{
         for(int i = 0; i < numero; i++){
             texto = scan.nextLine();
             scan.nextLine();
+            texto = texto.toLowerCase();
             for(int x = 0; x < texto.length(); x++){
                 int pos = (int) (texto.charAt(x));
                 pos = pos - 97;
