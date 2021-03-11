@@ -47,3 +47,4 @@ def binary_search(N=None,Values=None):
 
 if __name__ == '__main__':
     app.run()
+    print("hola")
